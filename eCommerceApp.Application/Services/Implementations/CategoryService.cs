@@ -1,33 +1,51 @@
-﻿using eCommerceApp.Application.DTOs;
+﻿using AutoMapper;
+using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Category;
+using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Application.Services.Interfaces;
+using eCommerceApp.Domain.Entities;
+using eCommerceApp.Domain.Interfaces;
 namespace eCommerceApp.Application.Services.Implementations
 {
-    internal class CategoryService : ICategoryService
+    internal class CategoryService(IGeneric<Category> categoryInterface, IMapper mapper) : ICategoryService
     {
-        public Task<ServiceResponse> AddAsync(CreateCategory category)
+        public async Task<ServiceResponse> AddAsync(CreateCategory category)
         {
-            throw new NotImplementedException();
+            var mappedData = mapper.Map<Category>(category);
+            int result = await categoryInterface.AddAsync(mappedData);
+            return result > 0 ? new ServiceResponse(true, "Category added!") :
+                new ServiceResponse(false, "Category failed to be added");
         }
 
-        public Task<ServiceResponse> DeleteAsync(Guid id)
+        public async Task<ServiceResponse> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            int result = await categoryInterface.DeleteAsync(id);
+            return result > 0 ? new ServiceResponse(true, "Category Deleted!") :
+                new ServiceResponse(false, "Category failed to be deleted");
         }
 
-        public Task<IEnumerable<GetCategory>> GetAllAsync()
+        public async Task<IEnumerable<GetCategory>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var rawData = await categoryInterface.GetAllAsync();
+            if (!rawData.Any()) return [];
+
+            return mapper.Map<IEnumerable<GetCategory>>(rawData);
         }
 
-        public Task<GetCategory> GetByIdAsync(Guid id)
+        public async Task<GetCategory> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var rawData = await categoryInterface.GetByIdAsync(id);
+            if (rawData == null) return new GetCategory;
+
+            return mapper.Map<GetCategory>(rawData);
         }
 
-        public Task<ServiceResponse> UpdateAsync(UpdateCategory category)
+        public async Task<ServiceResponse> UpdateAsync(UpdateCategory category)
         {
-            throw new NotImplementedException();
+            var mappedData = mapper.Map<Category>(category);
+            int result = await categoryInterface.UpdateAsync(mappedData);
+            return result > 0 ? new ServiceResponse(true, "Category updated!") :
+                new ServiceResponse(false, "Category failed to be updated");
         }
     }
 }

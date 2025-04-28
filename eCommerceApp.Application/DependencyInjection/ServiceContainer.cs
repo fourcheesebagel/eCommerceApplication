@@ -1,4 +1,6 @@
 ﻿using eCommerceApp.Application.Mapping;
+using eCommerceApp.Application.Services.Implementations;
+using eCommerceApp.Application.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,8 @@ namespace eCommerceApp.Application.DependencyInjection
         public static IServiceCollection AddApplicationService(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(MappingConfig));
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
             return services;
         }
     }

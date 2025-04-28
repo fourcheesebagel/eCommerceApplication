@@ -4,18 +4,4 @@
     {
 
     }
-
-    public class CreateCategory : CategoryBase
-    {
-    }
-
-    public class UpdateCategory : CategoryBase
-    {
-        public Guid Id { get; set; }
-    }
-
-    public class CategoryBase
-    {
-        public string? Name { get; set; }
-    }
 }

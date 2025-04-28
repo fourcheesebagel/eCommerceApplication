@@ -1,5 +1,4 @@
 ﻿using eCommerceApp.Application.DTOs.Product;
-
 namespace eCommerceApp.Application.DTOs.Category
 {
     public class GetCategory : CategoryBase

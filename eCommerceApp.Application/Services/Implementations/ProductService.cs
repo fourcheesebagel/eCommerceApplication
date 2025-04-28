@@ -6,7 +6,7 @@ using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Interfaces;
 namespace eCommerceApp.Application.Services.Implementations
 {
-    internal class ProductService(IGeneric<Product> productInterface, IMapper mapper) : IProductService
+    public class ProductService(IGeneric<Product> productInterface, IMapper mapper) : IProductService
     {
         public async Task<ServiceResponse> AddAsync(CreateProduct product)
         {

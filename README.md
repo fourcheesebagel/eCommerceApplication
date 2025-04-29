@@ -12,7 +12,11 @@ This will also include my dumbed-down descriptions for each of the learning poin
 
 <ins>***Key Learning Points***</ins>
 - Structure [Restaurant for example]
-  - Infrastructure (Data Access Layer) (The Storage of our Store!) [Contains the connections to our storage, ways we grab stuff from our storage and the dependencies we'll need from the services in our application] 
-  - Application (Business Logic Layer) (The Kitchen of our Store!) [This layer grabs the 'ingredients' from our Infrastructure, this also defines the services that we'll provide using items from our storage and the ingredients defined in our Domain
-  - Host (Main Layer) (This Contains our HTTP Endpoints, basically how our users will interact with the back-end) [This is the Server of the restaurant, who will received orders to be processed by the Kitchen (Business Logic Layer)] 
-  - Domain (Domain Layer) (Defines our application, what am I to you?) [What kind of objects do we use?]
+  - Infrastructure (Data Access Layer)
+    - The Storage of our Store! [Contains the connections to our storage, ways we grab stuff from our storage and the dependencies we'll need from the services in our application] 
+  - Application (Business Logic Layer) 
+    - The Kitchen of our Store! [This layer grabs the 'ingredients' from our Infrastructure, this also defines the services that we'll provide using items from our storage and the ingredients defined in our Domain
+  - Host (Main Layer)
+    - This Contains our HTTP Endpoints, basically how our users will interact with the back-end [This is the Server of the restaurant, who will received orders to be processed by the Kitchen (Business Logic Layer)] 
+  - Domain (Domain Layer) 
+    - Defines our application, what am I to you? [What kind of recipes do we have? | Define our Customers? | Define our Servers]

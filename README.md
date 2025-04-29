@@ -20,3 +20,9 @@ This will also include my dumbed-down descriptions for each of the learning poin
     - This Contains our HTTP Endpoints, basically how our users will interact with the back-end [This is the Server of the restaurant, who will received orders to be processed by the Kitchen (Business Logic Layer)] 
   - Domain (Domain Layer) 
     - Defines our application, what am I to you? [What kind of recipes do we have? | Define our Customers? | Define our Servers]
+- Validation
+  - Microsoft Authentication | Authorization
+    - JWT Token Configuration
+  - Handling in the Infrastructure Layer, to prevent bad data from entering our database (Can't order something not on our ingredients list)
+ - Logger
+   - Using Serilog to initialize log file writer, to ensure developers have activity logs from the application on a daily basis

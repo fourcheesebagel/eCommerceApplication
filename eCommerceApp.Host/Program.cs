@@ -24,10 +24,21 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructureService(builder.Configuration); //Contains our DB Connection
 builder.Services.AddApplicationService();
+builder.Services.AddCors(builder =>
+{
+    builder.AddDefaultPolicy(options =>
+    {
+        options.AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowAnyOrigin() //allows users from any port can access the methods for the HTTP calls
+        .AllowCredentials();
+    });
+});
 
 try
 {
     var app = builder.Build();
+    app.UseCors();
     app.UseSerilogRequestLogging();
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())

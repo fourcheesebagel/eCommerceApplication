@@ -2,6 +2,7 @@
 using eCommerceApp.Domain.Interfaces;
 using eCommerceApp.Infrastructure.Data;
 using eCommerceApp.Infrastructure.Repositories;
+using EntityFramework.Exceptions.SqlServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +19,7 @@ namespace eCommerceApp.Infrastructure.DependencyInjection
             { //Ensure this is the correct assembly
                 sqlOptions.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName);
                 sqlOptions.EnableRetryOnFailure(); //Enables Automatic Retries for transient Failures
-            }),
+            }).UseExceptionProcessor(),
             ServiceLifetime.Scoped);
 
             services.AddScoped<IGeneric<Product>, GenericRepository<Product>>();

@@ -19,8 +19,9 @@ namespace eCommerceApp.Application.Services.Implementations
         public async Task<ServiceResponse> DeleteAsync(Guid id)
         {
             int result = await productInterface.DeleteAsync(id);
+
             return result > 0 ? new ServiceResponse(true, "Product Deleted!") : 
-                new ServiceResponse(false, "Product failed to be deleted");
+                new ServiceResponse(false, "Product not found or failed to be deleted");
         }
 
         public async Task<IEnumerable<GetProduct>> GetAllAsync()
@@ -34,7 +35,7 @@ namespace eCommerceApp.Application.Services.Implementations
         public async Task<GetProduct> GetByIdAsync(Guid id)
         {
             var rawData = await productInterface.GetByIdAsync(id);
-            if (rawData == null) return new GetProduct;
+            if (rawData == null) return new GetProduct();
 
             return mapper.Map<GetProduct>(rawData);
         }

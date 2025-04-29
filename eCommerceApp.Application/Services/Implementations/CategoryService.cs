@@ -20,8 +20,9 @@ namespace eCommerceApp.Application.Services.Implementations
         public async Task<ServiceResponse> DeleteAsync(Guid id)
         {
             int result = await categoryInterface.DeleteAsync(id);
+
             return result > 0 ? new ServiceResponse(true, "Category Deleted!") :
-                new ServiceResponse(false, "Category failed to be deleted");
+                new ServiceResponse(false, "Category not found or failed to be deleted");
         }
 
         public async Task<IEnumerable<GetCategory>> GetAllAsync()
@@ -35,7 +36,7 @@ namespace eCommerceApp.Application.Services.Implementations
         public async Task<GetCategory> GetByIdAsync(Guid id)
         {
             var rawData = await categoryInterface.GetByIdAsync(id);
-            if (rawData == null) return new GetCategory;
+            if (rawData == null) return new GetCategory();
 
             return mapper.Map<GetCategory>(rawData);
         }

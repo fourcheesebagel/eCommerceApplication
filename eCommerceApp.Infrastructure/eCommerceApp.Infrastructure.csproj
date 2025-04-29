@@ -18,6 +18,12 @@
 	<PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
 	<PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
 	<PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+
+	<!-- Adds authentication checks to our MiddleLayer-->
+	<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
+	<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
+	<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.10" />
+	<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>

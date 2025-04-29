@@ -24,14 +24,14 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructureService(builder.Configuration); //Contains our DB Connection
 builder.Services.AddApplicationService();
-builder.Services.AddCors(builder =>
+builder.Services.AddCors(builder => //Security controls for which websites or apps are allowed to talk to your server
 {
     builder.AddDefaultPolicy(options =>
     {
-        options.AllowAnyHeader()
-        .AllowAnyMethod()
-        .AllowAnyOrigin() //allows users from any port can access the methods for the HTTP calls
-        .AllowCredentials();
+        options.AllowAnyHeader() //allows any kind of data (JSON,text etc., to be sent in requests)
+        .AllowAnyMethod() //Allows any HTTP Method (GET, PUT DELETE, POST)
+        .AllowAnyOrigin() //allows users from any port can access the methods for the HTTP calls, allows any website or app, to call the server
+        .AllowCredentials(); //ALLOWS cookies and auth tokens to be sent with requests
     });
 });
 

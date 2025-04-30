@@ -24,5 +24,9 @@ This will also include my dumbed-down descriptions for each of the learning poin
   - Microsoft Authentication | Authorization
     - JWT Token Configuration
   - Handling in the Infrastructure Layer, to prevent bad data from entering our database (Can't order something not on our ingredients list)
+  - FluentValidation
+    - Used to validate incoming User Data for login and creation of user login (Application Layer)
  - Logger
    - Using Serilog to initialize log file writer, to ensure developers have activity logs from the application on a daily basis
+ - User Creation and Token Management (Infrastructure)
+   - User, Role and Token Management which handles all the calls to our database to either store, create, refresh: Users, Roles or Tokens.

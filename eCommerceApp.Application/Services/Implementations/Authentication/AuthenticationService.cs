@@ -1,4 +1,5 @@
-﻿using eCommerceApp.Application.DTOs;
+﻿using AutoMapper;
+using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Identity;
 using eCommerceApp.Application.Services.Interfaces.Authentication;
 using eCommerceApp.Application.Services.Interfaces.Logging;
@@ -7,7 +8,11 @@ using eCommerceApp.Domain.Interfaces.Authentication;
 namespace eCommerceApp.Application.Services.Implementations.Authentication
 {
     public class AuthenticationService
-        (ITokenManagement tokenManagement, IUserManagement userManagement, IRoleManagement roleManagement, IAppLogger<AuthenticationService> logger): IAuthenticationService
+        (ITokenManagement tokenManagement, 
+        IUserManagement userManagement, 
+        IRoleManagement roleManagement, 
+        IAppLogger<AuthenticationService> logger, 
+        IMapper mapper) : IAuthenticationService
     {
         public Task<ServiceResponse> CreateUser(CreateUser user)
         {

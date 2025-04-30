@@ -1,4 +1,5 @@
 ﻿using eCommerceApp.Domain.Entities;
+using eCommerceApp.Domain.Entities.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,7 @@ namespace eCommerceApp.Infrastructure.Data
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<RefreshToken> RefreshToken { get; set; }
     }
 }

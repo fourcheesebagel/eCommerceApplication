@@ -26,12 +26,4 @@ namespace eCommerceApp.Application.Validations.Authentication
                 .Equal(x => x.Password).WithMessage("Passwords do not Match");
         }
     }
-
-    public class LoginUserValidator : AbstractValidator<LoginUser>
-    {
-        public LoginUserValidator()
-        {
-            
-        }
-    }
 }

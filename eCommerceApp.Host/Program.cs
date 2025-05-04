@@ -30,7 +30,7 @@ builder.Services.AddCors(builder => //Security controls for which websites or ap
     {
         options.AllowAnyHeader() //allows any kind of data (JSON,text etc., to be sent in requests)
         .AllowAnyMethod() //Allows any HTTP Method (GET, PUT DELETE, POST)
-        .AllowAnyOrigin() //allows users from any port can access the methods for the HTTP calls, allows any website or app, to call the server
+        .WithOrigins("https://localhost:7025") //allows users from any port can access the methods for the HTTP calls, allows any website or app, to call the server
         .AllowCredentials(); //ALLOWS cookies and auth tokens to be sent with requests
     });
 });

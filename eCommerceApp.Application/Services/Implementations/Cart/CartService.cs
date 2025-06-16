@@ -12,7 +12,7 @@ namespace eCommerceApp.Application.Services.Implementations.Cart
     public class CartService(ICart cartInterface, IMapper mapper, IGeneric<Product> productInterface, 
         IPaymentMethodService paymentMethodService, IPaymentService paymentService) : ICartService
     {
-        public async Task<ServiceResponse> Checkout(Checkout checkout, string userId)
+        public async Task<ServiceResponse> Checkout(Checkout checkout)
         {
             var (products, totalAmount) = await GetCartTotalAmount(checkout.Carts);
             var paymentMethods = await paymentMethodService.GetPaymentMethods();

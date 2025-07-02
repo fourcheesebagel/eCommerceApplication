@@ -3,11 +3,6 @@ using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Application.Services.Interfaces.Cart;
 using eCommerceApp.Domain.Entities;
 using Stripe.Checkout;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace eCommerceApp.Infrastructure.Services
 {
@@ -39,11 +34,12 @@ namespace eCommerceApp.Infrastructure.Services
 
                 var options = new SessionCreateOptions
                 {
-                    PaymentMethodTypes = ["usd"],
+                    PaymentMethodTypes = ["card"],
                     LineItems = lineItems,
                     Mode = "payment",
-                    SuccessUrl = "https:localhost:7025/payment-success",
-                    CancelUrl = "https:localhost:7025/payment-cancel"
+                    Locale = "en",
+                    SuccessUrl = "https://localhost:7025/payment-success",
+                    CancelUrl = "https://localhost:7025/payment-cancel"
                 };
 
                 var service = new SessionService();

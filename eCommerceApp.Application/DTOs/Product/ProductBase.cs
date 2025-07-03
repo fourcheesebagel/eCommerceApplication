@@ -11,7 +11,7 @@ namespace eCommerceApp.Application.DTOs.Product
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
         [Required]
-        public string? Base64Image { get; set; }
+        public string? Image { get; set; }
         [Required]
         public int Quantity { get; set; }
         [Required]

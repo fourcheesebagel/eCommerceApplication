@@ -7,5 +7,6 @@ namespace eCommerceApp.Application.Services.Interfaces.Cart
     {
         Task<ServiceResponse> SaveCheckoutHistory(IEnumerable<CreateArchive> archives);
         Task<ServiceResponse> Checkout(Checkout checkout);
+        Task<IEnumerable<GetArchieve>> GetArchives();
     }
 }
